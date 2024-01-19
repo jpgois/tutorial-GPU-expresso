@@ -101,7 +101,7 @@ else:
 #SBATCH --error testGPU-%j.err
 #SBATCH --partition metano
 
-module load cuda/12.2-gcc-12.2.0-cexgeyz
+# module load cuda/12.2-gcc-12.2.0-cexgeyz
 
 # ACTIVATE ANACONDA
 
@@ -127,5 +127,8 @@ Nome da GPU: NVIDIA A30
 Disponível para uso: True
 Memória total: 25231032320
 ```
+Isto é, o programa Python encontrou duas A30. 
+
+-------
 
 **Agradecimentos:** Este passo-a-passo teve como ponto de partida o Tutorial do [Oliveiras96](https://github.com/Oliveiras96/Tutorial-espresso-2023). 
