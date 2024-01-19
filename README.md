@@ -5,7 +5,7 @@ Passo-a-passo para submeter um job para o Cluster Carbono utilizando Miniconda, 
 1. Logar na HPC
 
 ```bash
-ssh [seuloging]@hpc.ufabc.edu.br
+ssh [seulogin]@hpc.ufabc.edu.br
 ```
 
 2. Logar na Carbono
