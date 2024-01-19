@@ -1,4 +1,4 @@
-# tutorial-GPU-expresso
+# Passo-a-passo-GPU-super-expresso
 
 Passo-a-passo para submeter um job para o Cluster Carbono utilizando Miniconda, Pytorch e CUDA. Talvez não sejam necessários todos estes passos. Então, fiquem a vontade para entrarem em contato para aprimorarmos este documento. 
 
