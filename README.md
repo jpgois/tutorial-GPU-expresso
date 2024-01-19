@@ -1,23 +1,23 @@
 # Passo-a-passo-GPU-super-expresso
 
-Passo-a-passo para submeter um job para o Cluster Carbono utilizando Miniconda, Pytorch e CUDA. Talvez não sejam necessários todos estes passos. Então, fiquem a vontade para entrarem em contato para aprimorarmos este documento. 
+Passo-a-passo que realizei para submeter um job para o Cluster Carbono utilizando Miniconda, Pytorch e CUDA. Talvez não sejam necessários todos estes passos. Então, fiquem a vontade para entrarem em contato para aprimorarmos este documento. 
 
-1. Logar na HPC
+1. Loguei na HPC
 
 ```bash
 ssh [seulogin]@hpc.ufabc.edu.br
 ```
 
-2. Logar na Carbono
+2. Loguei na Carbono
 
 ```bash
 ssh carbono.ufabc.int.br
 ```
 
-3. Uma vez dentro da Carbono, precisamos acessar o Miniconda para construirmos os ambientes. 
+3. Uma vez dentro da Carbono, acessei o Miniconda para construir os ambientes (envs). 
 
 4. Utilizei o Miniconda que está disponível como módulo.
-5.  Consulte os módulos com o comando:
+5.  Consultei os módulos com o comando:
 ```bash
 module avail
 ```
@@ -42,7 +42,9 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvi
 ```
 
 
-9. voce consegue ver as partições que o Cluster contém com o comando:
+**OBS** Uma vez o Conda configurado. Não precisa repetir os passos 3-9.
+
+10. Voce consegue ver as partições que o Cluster contém com o comando:
 
 ```bash
 sinfo
