@@ -42,12 +42,54 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvi
 ```
 
 
-9.   voce consegue ver os nós que ela contém:
+9. voce consegue ver as partições que o Cluster contém com o comando:
 
 ```bash
 sinfo
  ```
 
+10. No caso da Carbono, duas delas tem GPUs, que são as partições **metano** (A30), e a etileno** (A40)
+
+11. Utilizei o seguinte código em Python, que salvei como **checktorchgpu.py** para testar se a GPU estava visível
+```python
+import torch
+
+# Verificar se há GPUs disponíveis
+if torch.cuda.is_available():
+    # Exibir informações sobre as GPUs
+    for i in range(torch.cuda.device_count()):
+        print("Nome da GPU:", torch.cuda.get_device_name(i))
+        print("Disponível para uso:", torch.cuda.is_available())
+        print("Memória total:", torch.cuda.get_device_properties(i).total_memory)
+else:
+    print("Nenhuma GPU encontrada.")
+```
+12. E o seguinte script bash para submeter este código para o Cluster
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=jpg_testGPU
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=2
+#SBATCH --gres=gpu:2
+#SBATCH --output testGPU-%j.out
+#SBATCH --error testGPU-%j.err
+#SBATCH --partition metano
+
+
+module load cuda/12.2-gcc-12.2.0-cexgeyz
+
+# ACTIVATE ANACONDA
+
+eval "$(conda shell.bash hook)"
+
+conda activate basetorch
+
+# RUN BENCHMARK
+python3 -u checktorchgpu.py
+```
+
+13. Para rodar este código, fiz:
 
 
 **Agradecimentos:** Este passo-a-passo teve como ponto de partida o Tutorial do [Oliveiras96](https://github.com/Oliveiras96/Tutorial-espresso-2023). 
