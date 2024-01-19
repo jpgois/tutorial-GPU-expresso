@@ -29,8 +29,19 @@ module load miniconda3/22.11.1-gcc-12.2.0-qnqpe5k
 ```bash
 conda init
 ```
-   
- 
+ 8. Saí e entrei novamente no cluster e notei que o Conda já estava sendo carregado:
+```bash
+(base) [meulogin@carbono ~]$
+ ```
+9. Criei um env específico para teste com GPU utilizando o Pytorch, com a seguinte sequência de comandos:
+```bash
+conda env list
+conda create --name basetorch
+conda activate basetorch
+conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+```
+
+
 9.   voce consegue ver os nós que ela contém:
 
 ```bash
