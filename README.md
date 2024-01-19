@@ -5,7 +5,7 @@ Passo-a-passo que realizei para submeter um job para o Cluster Carbono utilizand
 1. Loguei na HPC (se voce estiver dentro da UFABC, não é necessário logar primeiramente na HPC):
 
 ```bash
-ssh [meulogin]@hpc.ufabc.edu.br
+ssh foo.bar@hpc.ufabc.edu.br
 ```
 
 2. Loguei na Carbono
@@ -28,12 +28,12 @@ module load miniconda3/22.11.1-gcc-12.2.0-qnqpe5k
 ```bash
 conda init
 ```
- 8. Saí e entrei novamente no cluster e notei que o Conda já estava sendo carregado:
+ 8. Saí e entrei novamente no cluster e notei que o Conda já estava sendo carregado (com o env **base**) :
 ```bash
-(base) [meulogin@carbono ~]$
+(base) [foo.bar@carbono ~]$
  ```
 
-**OBS:** Caso o Conda não esteja sendo inicializado quando voce loga na Carbono, inclua estas linhas no seu arquivo **.bashrc**
+**OBS:** Caso o Conda não esteja sendo inicializado quando voce loga na Carbono, tente incluir estas linhas no seu arquivo **.bashrc**
 
 ```bash
 # >>> conda initialize >>>
