@@ -2,10 +2,10 @@
 
 Passo-a-passo que realizei para submeter um job para o Cluster Carbono utilizando Miniconda, Pytorch e CUDA. Talvez não sejam necessários todos estes passos. Então, fiquem a vontade para entrarem em contato para aprimorarmos este documento. 
 
-1. Loguei na HPC
+1. Loguei na HPC (se voce estiver dentro da UFABC, não é necessário logar primeiramente na HPC):
 
 ```bash
-ssh [seulogin]@hpc.ufabc.edu.br
+ssh [meulogin]@hpc.ufabc.edu.br
 ```
 
 2. Loguei na Carbono
@@ -14,14 +14,13 @@ ssh [seulogin]@hpc.ufabc.edu.br
 ssh carbono.ufabc.int.br
 ```
 
-3. Uma vez dentro da Carbono, acessei o Miniconda para construir os ambientes (envs). 
-
+3. Uma vez dentro da Carbono, carreguei o Miniconda para construir os ambientes (envs). 
 4. Utilizei o Miniconda que está disponível como módulo.
-5.  Consultei os módulos com o comando:
+5. Consultei os módulos com o comando:
 ```bash
 module avail
 ```
-6. Carreguei o Módulo Miniconda:
+6. Carreguei o módulo Miniconda:
 ```bash
 module load miniconda3/22.11.1-gcc-12.2.0-qnqpe5k
 ```
@@ -33,6 +32,30 @@ conda init
 ```bash
 (base) [meulogin@carbono ~]$
  ```
+
+**OBS:** Caso o Conda não esteja sendo inicializado quando voce loga na Carbono, inclua estas linhas no seu arquivo **.bashrc**
+
+```bash
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/spack/opt/spack/linux-oracle8-x86_64/gcc-12.2.0/miniconda3-22.11.1-qnqpe5kjmlj72r2lv6k4dffgsepien
+22/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/spack/opt/spack/linux-oracle8-x86_64/gcc-12.2.0/miniconda3-22.11.1-qnqpe5kjmlj72r2lv6k4dffgsepien22/et
+c/profile.d/conda.sh" ]; then
+        . "/opt/spack/opt/spack/linux-oracle8-x86_64/gcc-12.2.0/miniconda3-22.11.1-qnqpe5kjmlj72r2lv6k4dffgsepien22/etc/
+profile.d/conda.sh"
+    else
+        export PATH="/opt/spack/opt/spack/linux-oracle8-x86_64/gcc-12.2.0/miniconda3-22.11.1-qnqpe5kjmlj72r2lv6k4dffgsep
+ien22/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+```
+
 9. Criei um env específico para teste com GPU utilizando o Pytorch, com a seguinte sequência de comandos:
 ```bash
 conda env list
