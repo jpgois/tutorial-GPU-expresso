@@ -17,7 +17,7 @@ ssh carbono.ufabc.int.br
 3. Uma vez dentro da Carbono, precisamos acessar o Miniconda para construirmos os ambientes. 
 
 4. Utilizei o Miniconda que está disponível como módulo.
-5.  Consulte os módulos com o comando
+5.  Consulte os módulos com o comando:
 ```bash
 module avail
 ```
