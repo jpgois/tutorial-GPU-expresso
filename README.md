@@ -50,9 +50,9 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvi
 sinfo
  ```
 
-10. No caso da Carbono, duas delas tem GPUs, que são as partições **metano** (A30), e a etileno** (A40)
+10. No caso da Carbono, duas delas tem GPUs, que são as partições **metano** (Nvidia A30), e a **etileno** (Nvidia A40)
 
-11. Utilizei o seguinte código em Python, que salvei como **checktorchgpu.py** para testar se a GPU estava visível
+11. Utilizei o seguinte código em Python, que salvei como **checktorchgpu.py** para testar se a GPU estava visível: 
 ```python
 import torch
 
