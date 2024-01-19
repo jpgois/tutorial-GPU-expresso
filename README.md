@@ -64,7 +64,7 @@ if torch.cuda.is_available():
 else:
     print("Nenhuma GPU encontrada.")
 ```
-12. E o seguinte script bash para submeter este código para o Cluster
+12. E o seguinte script bash, que salvei como  **scriptTorchGPU.sh**, para submeter este código para o Cluster
 
 ```bash
 #!/bin/bash
@@ -90,6 +90,8 @@ python3 -u checktorchgpu.py
 ```
 
 13. Para rodar este código, fiz:
-
+```bash
+ sbatch scriptTorchGPU.sh
+```
 
 **Agradecimentos:** Este passo-a-passo teve como ponto de partida o Tutorial do [Oliveiras96](https://github.com/Oliveiras96/Tutorial-espresso-2023). 
