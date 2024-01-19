@@ -65,7 +65,7 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvi
 ```
 
 
-**OBS** Uma vez o Conda configurado. Não precisa repetir os passos 3-9.
+**OBS**: Uma vez o Conda configurado, não é necessário repetir os passos 3-9.
 
 10. Voce consegue ver as partições que o Cluster contém com o comando:
 
@@ -73,9 +73,9 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvi
 sinfo
  ```
 
-10. No caso da Carbono, duas delas tem GPUs, que são as partições **metano** (Nvidia A30), e a **etileno** (Nvidia A40)
+10. No caso da Carbono, duas delas tem GPUs, que são as partições **metano** (Nvidia A30) e a **etileno** (Nvidia A40).
 
-11. Utilizei o seguinte código em Python, que salvei como **checktorchgpu.py** para testar se a GPU estava visível: 
+11. Utilizei o seguinte código em Python, salvo como **checktorchgpu.py**, para testar se a GPU estava visível: 
 ```python
 import torch
 
@@ -89,7 +89,7 @@ if torch.cuda.is_available():
 else:
     print("Nenhuma GPU encontrada.")
 ```
-12. E o seguinte script bash, que salvei como  **scriptTorchGPU.sh**, para submeter este código para o Cluster
+12. E o seguinte script bash, salvo como  **scriptTorchGPU.sh**, para submeter este código para o Cluster
 
 ```bash
 #!/bin/bash
@@ -100,7 +100,6 @@ else:
 #SBATCH --output testGPU-%j.out
 #SBATCH --error testGPU-%j.err
 #SBATCH --partition metano
-
 
 module load cuda/12.2-gcc-12.2.0-cexgeyz
 
@@ -114,9 +113,19 @@ conda activate basetorch
 python3 -u checktorchgpu.py
 ```
 
-13. Para rodar este código, fiz:
+13. Finalmente, para rodar este código:
 ```bash
  sbatch scriptTorchGPU.sh
+```
+
+14. Que gerou como saída dois arquivos, **testGPU-1793.err** e **testGPU-1793.out**, onde 1793 é o número do processo, com os seguintes conteúdos:
+```
+Nome da GPU: NVIDIA A30
+Disponível para uso: True
+Memória total: 25231032320
+Nome da GPU: NVIDIA A30
+Disponível para uso: True
+Memória total: 25231032320
 ```
 
 **Agradecimentos:** Este passo-a-passo teve como ponto de partida o Tutorial do [Oliveiras96](https://github.com/Oliveiras96/Tutorial-espresso-2023). 
