@@ -118,7 +118,7 @@ python3 -u checktorchgpu.py
  sbatch scriptTorchGPU.sh
 ```
 
-14. Que gerou como saída dois arquivos, **testGPU-1793.err** e **testGPU-1793.out**, onde 1793 é o número do processo, com os seguintes conteúdos:
+14. Que gerou como saída dois arquivos, **testGPU-1793.err** e **testGPU-1793.out**, onde 1793 é o número do processo. O **.err** estava vazio e o **.out** continha:
 ```
 Nome da GPU: NVIDIA A30
 Disponível para uso: True
