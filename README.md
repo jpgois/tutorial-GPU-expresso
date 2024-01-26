@@ -8,10 +8,6 @@ Tentei carregar dois modulos
 - nvhpc/23.5-gcc-12.2.0-23kbozl
 - cuda/12.2-gcc-12.2.0-cexgeyz
 
-E também segui a sugestão de atualizar o Conda:  
-```
-conda update -n base -c defaults conda
-```
 
 e então compilar novamente.  Aguardando para ver se funciona. 
 ------
