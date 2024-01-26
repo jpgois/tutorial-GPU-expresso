@@ -7,8 +7,6 @@ Passo-a-passo que realizei para submeter um job para o Cluster Carbono utilizand
 Tentei carregar dois modulos 
 - nvhpc/23.5-gcc-12.2.0-23kbozl
 - cuda/12.2-gcc-12.2.0-cexgeyz
-
-
 e então compilar novamente.  Aguardando para ver se funciona. 
 ------
 1. Loguei na HPC (se voce estiver dentro da UFABC, não é necessário logar primeiramente na HPC):
